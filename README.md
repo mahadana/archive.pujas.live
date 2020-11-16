@@ -8,7 +8,6 @@ Install [Docker](https://docs.docker.com/get-docker/) and
 ```sh
 git clone https://github.com/mahadana/pujas.live.git
 cd pujas.live
-echo 'DB_PASSWORD=app' > .env
 docker-compose up
 ```
 

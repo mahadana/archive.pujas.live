@@ -26,11 +26,7 @@ test -d "$BASE_DIR" || git clone "$GIT_URL" "$BASE_DIR"
 
 cd "$BASE_DIR"
 
-if ! test -f .env; then
-  touch .env
-  chmod 600 .env
-  echo "DB_PASSWORD=$(rand)" > .env
-fi
+test -f .env || echo "DB_PASSWORD=$(rand)" > .env
 
 certbot --nginx --non-interactive --agree-tos --email "$EMAIL" \
   --domain "$DOMAIN" --domain "www.$DOMAIN"

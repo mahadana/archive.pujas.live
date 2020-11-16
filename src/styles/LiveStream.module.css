@@ -1,4 +1,19 @@
 .header {
-  background-color: #eee;
-  padding: 1em;
+  background-color: #fea;
+  font-size: 2em;
+  padding: .5em;
+}
+
+.image {
+  float: right;
+  height: 9em;
+  margin: 1em;
+}
+
+.description, .links {
+  margin: 1em;
+}
+
+.link {
+  margin: .5em;
 }

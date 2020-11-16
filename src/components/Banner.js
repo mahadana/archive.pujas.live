@@ -5,6 +5,9 @@ const Banner = (props) => {
     <>
       <h1 className={styles.header}>Pujas.live</h1>
       <p className={styles.links}>
+        <a className={styles.link} href="/">
+          Home
+        </a>
         <a className={styles.link} href="/chanting/">
           Chanting Books
         </a>

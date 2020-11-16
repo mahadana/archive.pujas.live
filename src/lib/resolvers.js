@@ -26,7 +26,7 @@ const resolvers = {
       return models.LiveStream.findByPk(id);
     },
     livestreams: (parent, args, { models }, info) => {
-      return models.LiveStream.findAll();
+      return models.LiveStream.findAll({ order: [["id", "ASC"]] });
     },
     test: (parent, args, context, info) => {
       return "Hello Jeff.";

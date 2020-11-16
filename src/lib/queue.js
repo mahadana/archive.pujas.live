@@ -1,4 +1,4 @@
-import Queue from "bee-queue";
+import Queue from "bull";
 
 const queueOptions = { redis: { host: "redis" } };
 

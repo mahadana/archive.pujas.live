@@ -27,8 +27,8 @@ const Home = () => {
       <ul>
         {data.livestreams.map((livestream) => (
           <li key={livestream.id}>
-            {livestream.imageUrl && <img src={livestream.imageUrl} />}
             <h2>{livestream.name}</h2>
+            {livestream.imageUrl && <img src={livestream.imageUrl} />}
             <p>{livestream.description}</p>
             {livestream.streamUrl && (
               <a href={livestream.streamUrl}>Stream</a>

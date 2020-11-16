@@ -16,6 +16,7 @@ services:
       dockerfile: Dockerfile.production
     command: bash -c "npm run sync && npm start"
     environment:
+      AIRTABLE_API_KEY: ${AIRTABLE_API_KEY}
       DB_PASSWORD: ${DB_PASSWORD}
     ports:
       - "127.0.0.1:3001:3000"
@@ -23,6 +24,7 @@ services:
     image: pujas.live_production-app
     command: npm run worker
     environment:
+      AIRTABLE_API_KEY: ${AIRTABLE_API_KEY}
       DB_PASSWORD: ${DB_PASSWORD}
 
 volumes:

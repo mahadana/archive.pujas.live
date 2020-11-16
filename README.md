@@ -8,6 +8,7 @@ Install [Docker](https://docs.docker.com/get-docker/) and
 ```sh
 git clone https://github.com/mahadana/pujas.live.git
 cd pujas.live
+# Add AIRTABLE_API_KEY=... to .env
 docker-compose up
 ```
 

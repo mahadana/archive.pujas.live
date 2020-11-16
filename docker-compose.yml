@@ -14,14 +14,14 @@ services:
     image: pujas.live_app
     build: .
     restart: unless-stopped
-    command: bash -c "npm run sync && npm run dev"
+    command: bash -c "npm install --quiet && npm run sync && npm run dev"
     depends_on:
       - db
       - redis
   worker:
     image: pujas.live_app
     restart: unless-stopped
-    command: npm run dev-worker
+    command: bash -c "npm install --quiet && npm run dev-worker"
     depends_on:
       - db
       - redis

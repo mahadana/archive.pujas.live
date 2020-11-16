@@ -1,6 +1,6 @@
-import withApollo from "../lib/apollo";
-
 import { gql, useQuery } from "@apollo/client";
+import Banner from "../components/Banner";
+import LiveStream from "../components/LiveStream";
 
 const QUERY_LIVESTREAMS = gql`
   query {
@@ -23,19 +23,11 @@ const Home = () => {
 
   return (
     <>
-      <h1>Pujas.live</h1>
+      <Banner />
       <ul>
         {data.livestreams.map((livestream) => (
           <li key={livestream.id}>
-            <h2>{livestream.name}</h2>
-            {livestream.imageUrl && <img src={livestream.imageUrl} />}
-            <p>{livestream.description}</p>
-            {livestream.streamUrl && (
-              <a href={livestream.streamUrl}>Stream</a>
-            )}{" "}
-            {livestream.websiteUrl && (
-              <a href={livestream.websiteUrl}>Website</a>
-            )}
+            <LiveStream {...livestream} />
           </li>
         ))}
       </ul>
@@ -43,4 +35,4 @@ const Home = () => {
   );
 };
 
-export default withApollo({ ssr: true })(Home);
+export default Home;

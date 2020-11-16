@@ -22,6 +22,12 @@ const resolvers = {
     books: (parent, args, { models }, info) => {
       return models.Book.findAll();
     },
+    livestream: (parent, { id }, { models }, info) => {
+      return models.LiveStream.findByPk(id);
+    },
+    livestreams: (parent, args, { models }, info) => {
+      return models.LiveStream.findAll();
+    },
     test: (parent, args, context, info) => {
       return "Hello Jeff.";
     },

@@ -14,11 +14,22 @@ const schema = gql`
     books: [Book]
   }
 
+  type LiveStream {
+    id: ID!
+    name: String!
+    imageUrl: String
+    description: String
+    websiteUrl: String
+    streamUrl: String
+  }
+
   type Query {
     book(id: ID!): Book
     books: [Book]
     author(id: ID!): Author
     authors: [Author]
+    livestream(id: ID!): LiveStream
+    livestreams: [LiveStream]
     test: String!
   }
 

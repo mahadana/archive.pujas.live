@@ -5,6 +5,7 @@ set -eu
 PROJECT="pujas.live"
 GIT_URL="https://github.com/mahadana/pujas.live.git"
 DOMAIN="pujas.live"
+EMAIL="admin@pujas.live"
 BASE_DIR="/opt/$PROJECT"
 
 if [[ "$(id -u)" != "0" ]]; then
@@ -25,9 +26,13 @@ test -d "$BASE_DIR" || git clone "$GIT_URL" "$BASE_DIR"
 
 cd "$BASE_DIR"
 
-test -f .env || echo "DB_PASSWORD=$(rand)" > .env
+if ! test -f .env; then
+  touch .env
+  chmod 600 .env
+  echo "DB_PASSWORD=$(rand)" > .env
+fi
 
-certbot --nginx --non-interactive --agree-tos --email admin@pujas.live \
+certbot --nginx --non-interactive --agree-tos --email "$EMAIL" \
   --domain "$DOMAIN" --domain "www.$DOMAIN"
 
 cp server/nginx.conf "/etc/nginx/sites-available/$PROJECT"
